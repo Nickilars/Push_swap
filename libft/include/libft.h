@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 11:40:19 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:38:07 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ typedef struct s_list
 {
 	int				*data;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
-
-typedef struct s_node
-{
-	int					*data;
-	struct s_node		*next;
-	struct s_node		*prev;
-}	t_node;
 
 typedef struct s_dlist
 {
-	size_t		len;
-	t_node		*tail;
-	t_node		*head;
+	size_t			len;
+	t_list			*tail;
+	t_list			*head;
 }	t_dlist;
+
+typedef struct s_clist
+{
+	size_t			len;
+	t_list			*head;
+}	t_clist;
 
 int			ft_itob(int nbr);
 int			ft_isalpha(int c);
@@ -95,13 +95,15 @@ t_list		*ft_lstnew(int *content);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-void		ft_lstdelone(t_list *lst, t_dlist *dlst, void (*del)(void *));
+void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 
 t_dlist		*ft_dlst_new(void);
-t_node		*ft_dlst_newcontent(int data);
-void		ft_dlst_addfront(t_dlist *lst, t_node *new);
-void		ft_dlst_addback(t_dlist *lst, t_node *new);
+t_list		*ft_pop_back(t_dlist *lst);
+t_list		*ft_pop_front(t_dlist *lst);
+t_list		*ft_dlst_newcontent(int data);
+void		ft_dlst_addfront(t_dlist *lst, t_list *new);
+void		ft_dlst_addback(t_dlist *lst, t_list *new);
 void		ft_dlst_clear(t_dlist **dlst, void (*del)(void *));
 
 #endif

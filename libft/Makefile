@@ -1,80 +1,102 @@
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
-SRC_FOLDER	= ./src/
+SRC_PATH	= ./src/
 
-GNL_SRC_FOLDER	= ./src/gnl/
+LIST_PATH	= ./src/list/simpl_list/
 
-PRINTF_SRC_FOLDER	= ./src/ft_printf/
+DLIST_PATH	= ./src/list/doubl_list/
 
-SRCS	= $(SRC_FOLDER)ft_isalpha.c \
-			$(SRC_FOLDER)ft_isdigit.c \
-			$(SRC_FOLDER)ft_isalnum.c \
-			$(SRC_FOLDER)ft_isascii.c \
-			$(SRC_FOLDER)ft_isprint.c \
-			$(SRC_FOLDER)ft_tolower.c \
-			$(SRC_FOLDER)ft_toupper.c \
-			$(SRC_FOLDER)ft_atoi.c \
-			$(SRC_FOLDER)ft_strncmp.c \
-			$(SRC_FOLDER)ft_memcmp.c \
-			$(SRC_FOLDER)ft_itoa.c \
-			$(SRC_FOLDER)ft_strdup.c \
-			$(SRC_FOLDER)ft_strchr.c \
-			$(SRC_FOLDER)ft_nbrlen_d.c \
-			$(SRC_FOLDER)ft_nbrlen_exa.c \
-			$(SRC_FOLDER)ft_strrchr.c \
-			$(SRC_FOLDER)ft_strlen.c \
-			$(SRC_FOLDER)ft_islower.c \
-			$(SRC_FOLDER)ft_isupper.c \
-			$(SRC_FOLDER)ft_free_2da.c \
-			$(SRC_FOLDER)ft_free_arrays.c \
-			$(SRC_FOLDER)ft_strlcpy.c \
-			$(SRC_FOLDER)ft_strlcat.c \
-			$(SRC_FOLDER)ft_split.c \
-			$(SRC_FOLDER)ft_strjoin.c \
-			$(SRC_FOLDER)ft_strtrim.c \
-			$(SRC_FOLDER)ft_strmapi.c \
-			$(SRC_FOLDER)ft_substr.c \
-			$(SRC_FOLDER)ft_strnstr.c \
-			$(SRC_FOLDER)ft_bzero.c \
-			$(SRC_FOLDER)ft_nbrlen_b.c \
-			$(SRC_FOLDER)ft_itob.c \
-			$(SRC_FOLDER)ft_btoi.c \
-			$(SRC_FOLDER)ft_atob.c \
-			$(SRC_FOLDER)ft_power.c \
-			$(SRC_FOLDER)ft_putchar_fd.c \
-			$(SRC_FOLDER)ft_putstr_fd.c \
-			$(SRC_FOLDER)ft_putnbr_fd.c \
-			$(SRC_FOLDER)ft_putendl_fd.c \
-			$(SRC_FOLDER)ft_calloc.c \
-			$(SRC_FOLDER)ft_memset.c \
-			$(SRC_FOLDER)ft_memchr.c \
-			$(SRC_FOLDER)ft_memcpy.c \
-			$(SRC_FOLDER)ft_memmove.c \
-			$(SRC_FOLDER)ft_striteri.c \
-			$(SRC_FOLDER)ft_lstnew.c \
-			$(SRC_FOLDER)ft_lstadd_front.c \
-			$(SRC_FOLDER)ft_lstsize.c \
-			$(SRC_FOLDER)ft_lstlast.c \
-			$(SRC_FOLDER)ft_lstadd_back.c \
-			$(SRC_FOLDER)ft_lstdelone.c \
-			$(SRC_FOLDER)ft_lstclear.c \
-			$(SRC_FOLDER)ft_lstiter.c \
-			$(SRC_FOLDER)ft_free.c
+CLIST_PATH	=./src/list/circular_list/
 
-SRCS_GNL	= $(GNL_SRC_FOLDER)get_next_line.c \
-				$(GNL_SRC_FOLDER)get_next_line_utils.c
+GNL_SRC_PATH	= ./src/gnl/
 
-SRCS_PRINTF	= $(PRINTF_SRC_FOLDER)ft_printf.c \
-				$(PRINTF_SRC_FOLDER)ft_print_c.c \
-				$(PRINTF_SRC_FOLDER)ft_print_d.c \
-				$(PRINTF_SRC_FOLDER)ft_print_hex.c \
-				$(PRINTF_SRC_FOLDER)ft_print_p.c \
-				$(PRINTF_SRC_FOLDER)ft_print_s.c \
-				$(PRINTF_SRC_FOLDER)ft_print_u.c
+PRINTF_SRC_PATH	= ./src/ft_printf/
 
-OBJS	= $(SRCS:.c=.o) $(SRCS_GNL:.c=.o) $(SRCS_PRINTF:.c=.o)
+SRC	= ft_isalpha.c \
+			ft_isdigit.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_tolower.c \
+			ft_toupper.c \
+			ft_atoi.c \
+			ft_strncmp.c \
+			ft_memcmp.c \
+			ft_itoa.c \
+			ft_strdup.c \
+			ft_strchr.c \
+			ft_nbrlen_d.c \
+			ft_nbrlen_exa.c \
+			ft_strrchr.c \
+			ft_strlen.c \
+			ft_islower.c \
+			ft_isupper.c \
+			ft_free_2da.c \
+			ft_free_arrays.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_split.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_strmapi.c \
+			ft_substr.c \
+			ft_strnstr.c \
+			ft_bzero.c \
+			ft_nbrlen_b.c \
+			ft_itob.c \
+			ft_btoi.c \
+			ft_atob.c \
+			ft_power.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putnbr_fd.c \
+			ft_putendl_fd.c \
+			ft_calloc.c \
+			ft_memset.c \
+			ft_memchr.c \
+			ft_memcpy.c \
+			ft_memmove.c \
+			ft_striteri.c \
+			ft_free.c
+
+SRC_SLIST	= ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c
+
+SRC_DLIST	= ft_dlst_addback.c \
+				ft_dlst_addfront.c \
+				ft_dlst_clear.c \
+				ft_dlst_new.c \
+				ft_dlst_newcontent.c \
+				ft_pop_front.c \
+				ft_pop_back.c
+
+SRCS_GNL	= get_next_line.c \
+				get_next_line_utils.c
+
+SRCS_PRINTF	= ft_printf.c \
+				ft_print_c.c \
+				ft_print_d.c \
+				ft_print_hex.c \
+				ft_print_p.c \
+				ft_print_s.c \
+				ft_print_u.c
+
+SRCS	= $(addprefix $(SRC_PATH)/,$(SRC)) $(addprefix $(LIST_PATH)/,$(SRC_SLIST)) $(addprefix $(DLIST_PATH)/,$(SRC_DLIST)) $(addprefix $(GNL_SRC_PATH)/,$(SRCS_GNL)) $(addprefix $(PRINTF_SRC_PATH)/,$(SRCS_PRINTF))
+
+OBJS	= $(SRCS:.c=.o)
+
+%.o: %.c
+# @printf "Libft object :		$(_BLUE)%-33.33s\r$(_END)\n" $@
+			@${CC} ${CFLAGS} -c $< -o $@
+
 
 NAME	= libft.a
 
@@ -101,7 +123,7 @@ $(NAME) : $(OBJS)
 re : fclean $(NAME)
 
 clean :
-		$(RM) *.o $(SRC_FOLDER)*.o $(GNL_SRC_FOLDER)*.o $(PRINTF_SRC_FOLDER)*.o
+		$(RM) *.o $(SRC_PATH)*.o $(GNL_SRC_FOLDER)*.o $(PRINTF_SRC_FOLDER)*.o
 
 fclean : clean
 		$(RM) $(NAME)

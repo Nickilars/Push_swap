@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_s.h                                              :+:      :+:    :+:   */
+/*   ft_dlst_addfront.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 17:53:33 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 16:42:17 by nrossel          ###   ########.fr       */
+/*   Created: 2023/02/13 18:13:01 by nrossel           #+#    #+#             */
+/*   Updated: 2023/02/20 18:12:21 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef P_S_H
-# define P_S_H
+#include "../../../include/libft.h"
 
-# include <stdlib.h>
-# include "./libft/include/libft.h"
-
-typedef struct s_index
+void	ft_dlst_addfront(t_dlist *lst, t_list *new)
 {
-	int	i;
-	int	j;
-	int	k;
-}	t_index;
-
-typedef struct s_pshswp
-{
-	t_dlist	*lst_a;
-	t_dlist	*lst_b;
-	t_index	index;
-}	t_pshswp;
-
-void	char_to_lst(char *av, t_pshswp *lst, t_index index);
-void	int_to_lst(char **av, t_pshswp *lst, t_index index);
-void	ft_init(t_pshswp *data);
-
-#endif
+	if (!new)
+		return ;
+	if (!lst)
+	{
+		lst->tail = new;
+		lst->head = new;
+		lst->len++;
+		return ;
+	}
+	else
+	{
+		lst->head->prev = new;
+		new->next = lst->head;
+		lst->head = new;
+		lst->len++;
+	}
+}

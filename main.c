@@ -6,17 +6,17 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:13:42 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 15:26:58 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/20 18:10:14 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./p_s.h"
 
-void	ft_printlist(t_pshswp *head)
+void	ft_printlist(t_pshswp *lst)
 {
 	t_list	*ptr;
 
-	ptr = head->lst_a;
+	ptr = lst->lst_a->head;
 	while (ptr != NULL)
 	{
 		ft_printf("%d -> ", *ptr->data);
@@ -37,5 +37,5 @@ int	main(int ac, char **av)
 	else
 		int_to_lst(av + 1, &data, data.index);
 	ft_printlist(&data);
-	ft_lstclear(&data.lst_a, &ft_free);
+	ft_dlst_clear(&data.lst_a, &ft_free);
 }
