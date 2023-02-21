@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:18:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 18:59:25 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:48:40 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_dlist	**char_to_lst(char *av, t_pshswp *lst, t_index index)
 	split = ft_split(av, ' ');
 	new_dlst = ft_dlst_new;
 	while (split[index.i])
-	{
+	{ /*----------------------------------- ici ------------------------------------------------*/
 		nbr = (int *)malloc(sizeof(int));
 		if (!nbr)
 		{

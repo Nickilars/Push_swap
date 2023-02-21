@@ -6,20 +6,22 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:24:18 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 18:12:28 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:43:50 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
-t_list	*ft_pop_back(t_dlist *lst)
+t_node	*ft_pop_back(t_dlist *lst)
 {
-	t_list	*ptr;
+	t_node	*node;
 
 	if (!lst)
 		return (0);
-	ptr = lst->tail;
+	node = lst->tail;
+	if ()
 	lst->tail = lst->tail->prev;
 	lst->tail->next = NULL;
-	return (ptr);
+	lst->len--;
+	return (node);
 }

@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 18:38:07 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:48:46 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
+
+typedef t_list	t_node;
 
 typedef struct s_dlist
 {
