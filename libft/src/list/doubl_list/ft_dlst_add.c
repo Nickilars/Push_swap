@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_new.c                                      :+:      :+:    :+:   */
+/*   ft_dlst_add.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 18:10:54 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/21 13:37:57 by nrossel          ###   ########.fr       */
+/*   Created: 2023/02/21 09:53:17 by nrossel           #+#    #+#             */
+/*   Updated: 2023/02/22 14:56:12 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
-t_dlist	*ft_dlst_new(void)
+void	ft_dlst_add(t_dlist **list, t_node *node, size_t position)
 {
-	t_dlist	*new_list;
+	size_t	index;
+	t_dlist	*list_tmp;
 
-	new_list = malloc(sizeof(t_dlist));
-	if (!new_list)
-		return (NULL);
-	new_list->head = NULL;
-	new_list->tail = NULL;
-	new_list->len = 0;
-	return (new_list);
+	index = 2;
+	list_tmp = *list;
+	if (!list || !node || position < 2 || position > (*list)->len)
+		return ;
+	while (index != position)
+	{
+		list_tmp->head = list_tmp->head->next;
+		index++;
+	}
+	node->next = list_tmp->head->next;
+	list_tmp->head->next->prev = node;
+	list_tmp->head->next = node;
+	node->prev = list_tmp->head;
 }

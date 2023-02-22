@@ -1,6 +1,6 @@
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -g -o1
 
 SRC_PATH	= ./src/
 
@@ -76,7 +76,8 @@ SRC_DLIST	= ft_dlst_addback.c \
 				ft_dlst_new.c \
 				ft_dlst_newcontent.c \
 				ft_pop_front.c \
-				ft_pop_back.c
+				ft_pop_back.c \
+				ft_dlst_add.c
 
 SRCS_GNL	= get_next_line.c \
 				get_next_line_utils.c

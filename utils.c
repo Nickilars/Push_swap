@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Utils.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:18:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 19:48:40 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:32:39 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,86 +18,76 @@ void	ft_init(t_pshswp *data)
 	data->index.i = 0;
 	data->index.j = 0;
 	data->index.k = 0;
+	data->lst_a = ft_dlst_new();
+	data->lst_b = ft_dlst_new();
+}
+
+/******************** CREAT NODE ***********************/
+static void	creat_newnode(t_dlist **list, char **tab, int index)
+{
+	int		nbr;
+	t_node	*new_node;
+
+	nbr = ft_atoi(tab[index]);
+	new_node = ft_dlst_newcontent(nbr);
+	printf("valuer de new_node -> %d\n", *new_node->data);
+	if ((*list)->head == NULL)
+		ft_dlst_addfront(list, new_node);
+	else
+		ft_dlst_addback(list, new_node);
 }
 
 /******************** CHECK ARG VALID ***********************/
-void	ft_arg_check(t_dlist *lst)
+static void	ft_arg_check(t_dlist **list)
 {
-	t_dlist	*lst_p1;
-	t_dlist	*lst_p2;
+	t_node	*node_1;
+	t_node	*node_2;
 
-	lst_p1 = lst;
-	while (lst_p1 != NULL)
+	node_1 = (*list)->head;
+	printf("\nadresse node_1 -> %p\n", node_1);
+	while (node_1->next != NULL)
 	{
-		lst_p2 = lst_p1;
-		while (lst_p2 != NULL)
+		node_2 = node_1->next;
+		printf("adresse node_2 -> %p\n", node_2);
+		while (node_2 != NULL)
 		{
-			if (*lst_p1->head->data == *lst_p2->head->data
-				|| *lst_p1->head->data > 2147483647
-				|| *lst_p1->head->data < -2147483641 - 1)
+			printf("valeur node_1 -> %d\n", *node_1->data);
+			printf("valeur node_2 -> %d\n", *node_1->data);
+			if (*node_1->data == *node_2->data)
 			{
-				ft_lstclear(&lst->head, &ft_free);
+				ft_dlst_clear(list, &ft_free);
 				ft_free_arrays(NULL, NULL, "Erreur, arguments invalides");
 			}
-			lst_p2->head = lst_p2->head->next;
+			node_2 = node_2->next;
 		}
-		lst_p1->head = lst_p1->head->next;
+		node_1 = node_1->next;
 	}
 }
 
 /******************** ARG TO LIST ***********************/
 /*------------- string to list -----------------*/
-t_dlist	**char_to_lst(char *av, t_pshswp *lst, t_index index)
+void	char_to_lst(char *av, t_pshswp *list, t_index index)
 {
 	char	**split;
-	t_list	*new_lst;
-	t_dlist	*new_dlst;
-	int		*nbr;
 
 	split = ft_split(av, ' ');
-	new_dlst = ft_dlst_new;
 	while (split[index.i])
-	{ /*----------------------------------- ici ------------------------------------------------*/
-		nbr = (int *)malloc(sizeof(int));
-		if (!nbr)
-		{
-			ft_dlst_clear(&lst->lst_a, &ft_free);
-			ft_free_arrays(NULL, NULL, "Error, no malloc char_to_lst");
-		}
-		*nbr = ft_atoi(split[index.i]);
-		new_lst = ft_lstnew(nbr);
-		if (lst->lst_a == NULL)
-			ft_dlst_addfront(lst->lst_a, new_lst);
-		else
-			ft_dlst_addback(lst->lst_a, new_lst);
+	{
+		creat_newnode(&list->lst_a, split, index.i);
 		index.i++;
 	}
 	ft_free_2da(split, index.i, NULL);
-	ft_arg_check(lst->lst_a);
-	return (new_dlst);
+	ft_arg_check(&list->lst_a);
 }
 
 /*----------------- int to list -------------------*/
-void	int_to_lst(char **av, t_pshswp *lst, t_index index)
+void	int_to_lst(char **av, t_pshswp *list, t_index index)
 {
-	t_list	*new_lst;
-	int		*nbr;
-
 	while (av[index.i])
 	{
-		nbr = (int *)malloc(sizeof(int));
-		if (!nbr)
-		{
-			ft_dlst_clear(&lst->lst_a, &ft_free);
-			ft_free_arrays(NULL, NULL, "Error, no malloc int_to_lst");
-		}
-		*nbr = ft_atoi(av[index.i]);
-		new_lst = ft_lstnew(nbr);
-		if (lst->lst_a == NULL)
-			ft_dlst_addfront(lst->lst_a, new_lst);
-		else
-			ft_dlst_addback(lst->lst_a, new_lst);
+		creat_newnode(&list->lst_a, av, index.i);
 		index.i++;
 	}
-	ft_arg_check(lst->lst_a);
+	ft_printlist(&list->lst_a, "\nListe a (Après ajout node)");
+	ft_arg_check(&list->lst_a);
 }

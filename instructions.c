@@ -6,70 +6,55 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:54:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 19:48:43 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:15:32 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./p_s.h"
 
 /*------------------ Swap ---------------------*/
-void	swap(t_list **lst)
+void	swap(t_dlist **lst)
 {
-	t_list	*lst_tmp;
+	t_node	*node_tmp;
 
-	if (!*lst || !(*lst)->next)
+	if (!lst ||!(*lst)->head || !(*lst)->head->next)
 		return ;
-	lst_tmp = *lst;
-	*lst = (*lst)->next;
-	lst_tmp = (*lst)->next;
-	*(*lst)->next = *lst_tmp;
+	node_tmp = ft_pop_front(lst);
+	if ((*lst)->len > 2)
+		ft_dlst_add(lst, node_tmp, 2);
+	else
+		ft_dlst_addback(lst, node_tmp);
 }
 
 /*------------------ Push ---------------------*/
-void	push(t_list **lst_a, t_list **lst_b)
+void	push(t_dlist **lst_a, t_dlist **lst_b)
 {
-	t_list	*lsta_tmp;
-	t_list	*lstb_tmp;
+	t_node	*node_tmp;
 
-	if (!*lst_b)
-	{
-		*lst_b = *lst_a;
-		*lst_a = (*lst_a)->next;
-		(*lst_b)->next = NULL;
-	}
-	else
-	{
-		lsta_tmp = *lst_a;
-		lstb_tmp = *lst_b;
-		*lst_a = *lst_b;
-		(*lst_a)->next = lsta_tmp->next;
-		*lst_b = lsta_tmp;
-		(*lst_b)->next = lstb_tmp->next;
-	}
+	if (!lst_b || !(*lst_a)->head)
+		return ;
+	node_tmp = ft_pop_front(lst_a);
+	ft_dlst_addfront(lst_b, node_tmp);
 }
 
 /*------------------ Rotate ---------------------*/
-void	rotate(t_list **lst)
+void	rotate(t_dlist **lst)
 {
-	t_list	*headlst_tmp;
-	t_list	*taillst_tmp;
+	t_node	*node;
 
-	headlst_tmp = *lst;
-	taillst_tmp = ft_lstlast(*lst);
-	*lst = (*lst)->next;
-	taillst_tmp->next = headlst_tmp;
-	headlst_tmp->next = NULL;
+	if (!lst || !(*lst)->head)
+		return ;
+	node = ft_pop_front(lst);
+	ft_dlst_addback(lst, node);
 }
 
 /*------------------ Reverse Rotate ---------------------*/
-void	r_rotate(t_list **lst)
+void	r_rotate(t_dlist **lst)
 {
-	t_list	*new_head_lst;
-	t_list	*new_tail_lst;
+	t_node	*node_tmp;
 
-	new_head_lst = ft_lstlast(*lst);
-	new_head_lst->next = *lst;
-	*lst = new_head_lst;
-	new_tail_lst = ft_lstlast(*lst);
-	new_tail_lst->next = NULL;
+	if (!lst || !(*lst)->head)
+		return ;
+	node_tmp = ft_pop_back(lst);
+	ft_dlst_addfront(lst, node_tmp);
 }

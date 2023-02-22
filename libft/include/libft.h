@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/20 19:48:46 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/22 15:01:11 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,25 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <string.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 
-typedef struct s_list
+typedef struct s_node
 {
 	int				*data;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_list;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
 
-typedef t_list	t_node;
+typedef t_node	t_list;
 
 typedef struct s_dlist
 {
+	t_node			*head;
+	t_node			*tail;
 	size_t			len;
-	t_list			*tail;
-	t_list			*head;
 }	t_dlist;
 
 typedef struct s_clist
@@ -101,11 +102,12 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 
 t_dlist		*ft_dlst_new(void);
-t_list		*ft_pop_back(t_dlist *lst);
-t_list		*ft_pop_front(t_dlist *lst);
-t_list		*ft_dlst_newcontent(int data);
-void		ft_dlst_addfront(t_dlist *lst, t_list *new);
-void		ft_dlst_addback(t_dlist *lst, t_list *new);
+t_node		*ft_pop_back(t_dlist **lst);
+t_node		*ft_pop_front(t_dlist **lst);
+t_node		*ft_dlst_newcontent(int data);
+void		ft_dlst_addfront(t_dlist **lst, t_node *new);
+void		ft_dlst_addback(t_dlist **lst, t_node *new);
 void		ft_dlst_clear(t_dlist **dlst, void (*del)(void *));
+void		ft_dlst_add(t_dlist **list, t_node *node, size_t position);
 
 #endif
