@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/22 15:01:11 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:55:12 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ t_node		*ft_dlst_newcontent(int data);
 void		ft_dlst_addfront(t_dlist **lst, t_node *new);
 void		ft_dlst_addback(t_dlist **lst, t_node *new);
 void		ft_dlst_clear(t_dlist **dlst, void (*del)(void *));
-void		ft_dlst_add(t_dlist **list, t_node *node, size_t position);
+void		ft_dlst_addnode(t_dlist **list, t_node *node, size_t position);
 
 #endif
