@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/22 16:55:12 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/23 14:21:43 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_node
 	int				*data;
 	struct s_node	*next;
 	struct s_node	*prev;
+	long long		position;
 }	t_node;
 
 typedef t_node	t_list;

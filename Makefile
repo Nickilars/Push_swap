@@ -8,8 +8,11 @@ NAME 		= push_swap
 
 SRC 	=	main.c \
 			utils.c \
-			instructions.c \
-			test.c
+			test.c \
+			push.c \
+			swap.c \
+			rotate.c \
+			r_rotate.c
 
 SRCS 	= 	$(addprefix $(SRCS_PATH)/,$(SRC))
 OBJS	=	$(SRCS:.c=.o)
