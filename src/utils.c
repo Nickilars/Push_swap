@@ -6,11 +6,11 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:18:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/23 13:43:35 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 10:45:44 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./p_s.h"
+#include "../include/p_s.h"
 
 /******************** CREAT NODE ***********************/
 static void	creat_newnode(t_dlist **list, char **tab, int index)

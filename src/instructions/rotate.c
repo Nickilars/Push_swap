@@ -6,11 +6,11 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:13:44 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/23 10:22:39 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 10:44:22 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./p_s.h"
+#include "../../include/p_s.h"
 
 void	rotate_a(t_dlist **list)
 {

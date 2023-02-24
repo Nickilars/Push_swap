@@ -1,20 +1,26 @@
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror -o3 -g3
 LIBFT		= -L./libft -lft
-INCLUDES	= -I libft/include
-SRCS_PATH	= ./
+INCLUDES	= -I libft/include/ -I includes/
+SRCS_PATH	= ./src
+ALGO_PATH	= ./src/algo
+INSTRU_PATH	= ./src/instructions
 
-NAME 		= push_swap
+NAME		= push_swap
 
-SRC 	=	main.c \
+SRC		=	main.c \
 			utils.c \
-			test.c \
+			utils_2.c \
+			test.c
+
+ALGO	=	algo_2nb.c \
+
+INSTRU	=	swap.c \
 			push.c \
-			swap.c \
 			rotate.c \
 			r_rotate.c
 
-SRCS 	= 	$(addprefix $(SRCS_PATH)/,$(SRC))
+SRCS 	= 	$(addprefix $(SRCS_PATH)/,$(SRC)) $(addprefix $(ALGO_PATH)/,$(ALGO)) $(addprefix $(INSTRU_PATH)/,$(INSTRU))
 OBJS	=	$(SRCS:.c=.o)
 
 _BLUE	=	\e[34m

@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:53:33 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/23 10:56:31 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 10:46:25 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define P_S_H
 
 # include <stdlib.h>
-# include "./libft/include/libft.h"
+# include "../libft/include/libft.h"
 
 typedef struct s_index
 {
@@ -32,6 +32,9 @@ typedef struct s_pshswp
 
 void	char_to_lst(char *av, t_pshswp *list);
 void	int_to_lst(char **av, t_pshswp *list);
+
+void	check_algo(t_pshswp *data);
+void	algo_2nb(t_dlist *list);
 
 void	swap_a(t_dlist **lst_a);
 void	swap_b(t_dlist **lst_b);

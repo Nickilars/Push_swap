@@ -6,11 +6,11 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:13:42 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/23 13:53:20 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:05:22 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./p_s.h"
+#include "../include/p_s.h"
 
 /******************** INITIALISATION ***********************/
 static void	ft_init(t_pshswp *data)
@@ -38,6 +38,6 @@ int	main(int ac, char **av)
 		char_to_lst(av[1], &data);
 	else
 		int_to_lst(av + 1, &data);
-	
+	check_algo(&data);
 	ft_dlst_clear(&data.lst_a, &ft_free);
 }
