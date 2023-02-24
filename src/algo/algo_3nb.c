@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:40:57 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:44:04 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 13:21:35 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void	algo_3nb(t_dlist *list)
 		&& list->tail->data > list->head->data)
 	{
 		return ;
-		// swap()
 	}
 }
