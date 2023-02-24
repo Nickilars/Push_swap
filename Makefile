@@ -14,7 +14,8 @@ SRC		=	main.c \
 			test.c
 
 ALGO	=	algo_2nb.c \
-			algo_3nb.c
+			algo_3nb.c \
+			algo_4nb.c
 
 INSTRU	=	swap.c \
 			push.c \

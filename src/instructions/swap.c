@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:58:37 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 13:15:56 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:50:22 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ void	swap_a(t_dlist **list)
 
 	if (!list ||!(*list)->head || (*list)->len < 2)
 		return ;
-	node_tmp = ft_pop_front(list);
 	if ((*list)->len > 2)
+	{
+		node_tmp = ft_pop_front(list);
 		ft_dlst_addnode(list, node_tmp, 2);
+	}
 	else
+	{
+		node_tmp = ft_pop_front(list);
 		ft_dlst_addback(list, node_tmp);
+	}
 	ft_printf("sa\n");
 }
 

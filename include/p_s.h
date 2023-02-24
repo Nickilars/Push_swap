@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:53:33 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:46:25 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 18:20:21 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ typedef struct s_pshswp
 void	char_to_lst(char *av, t_pshswp *list);
 void	int_to_lst(char **av, t_pshswp *list);
 
+int		check_order(t_dlist *list);
 void	check_algo(t_pshswp *data);
 void	algo_2nb(t_dlist *list);
+void	algo_3nb(t_dlist **list);
+void	algo_4nb(t_pshswp *list);
 
 void	swap_a(t_dlist **lst_a);
 void	swap_b(t_dlist **lst_b);

@@ -6,13 +6,13 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:53:41 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 15:11:04 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/24 18:21:55 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/p_s.h"
 
-static int	check_order(t_dlist *list)
+int	check_order(t_dlist *list)
 {
 	t_node	*node;
 
@@ -87,12 +87,9 @@ static void	normalize_list(t_dlist **list)
 {
 	size_t	ret;
 
-	ft_printf("\n----------------------------------------------------------------------------------\n");
-	ft_printlist(*list, "\nListe a avant normalisation\n");
 	ret = ft_issmaller(list);
 	ft_isbigger(list, ret);
-	ft_printf("\n----------------------------------------------------------------------------------\n");
-	ft_printlist(*list, "\nListe a après normalisation\n");
+	ft_printlist(*list, "\nListe après normalisation");
 }
 
 void	check_algo(t_pshswp *data)
@@ -105,10 +102,10 @@ void	check_algo(t_pshswp *data)
 			return ;
 		else if (data->lst_a->len == 2)
 			algo_2nb(data->lst_a);
-		// else if (data->lst_a->len == 3)
-			// algo_3nb(data->lst_a);
-		// else if (data->lst_a->len == 4)
-			// algo_4nb(data->lst_a);
+		else if (data->lst_a->len == 3)
+			algo_3nb(&data->lst_a);
+		else if (data->lst_a->len == 4)
+			algo_4nb(data);
 	}
 	ft_printf("\n----------------------------------------------------------------------------------\n");
 	ft_printlist(data->lst_a, "\nListe final triée");
