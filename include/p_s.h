@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:53:33 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 18:20:21 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:50:14 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_index
 
 typedef struct s_pshswp
 {
-	t_dlist	*lst_a;
-	t_dlist	*lst_b;
+	t_dlist	*a;
+	t_dlist	*b;
 	t_index	index;
 }	t_pshswp;
 
@@ -37,7 +37,7 @@ int		check_order(t_dlist *list);
 void	check_algo(t_pshswp *data);
 void	algo_2nb(t_dlist *list);
 void	algo_3nb(t_dlist **list);
-void	algo_4nb(t_pshswp *list);
+void	algo_5nb(t_pshswp *list);
 
 void	swap_a(t_dlist **lst_a);
 void	swap_b(t_dlist **lst_b);

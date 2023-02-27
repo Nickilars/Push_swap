@@ -6,13 +6,13 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:40:57 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 18:28:22 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 10:10:48 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/p_s.h"
 
-int *tab_list(t_dlist *list)
+int	*tab_list(t_dlist *list)
 {
 	int		*tab;
 	int		index;
@@ -20,7 +20,7 @@ int *tab_list(t_dlist *list)
 
 	index = 0;
 	node = list->head;
-	tab = malloc(3 * sizeof(int));
+	tab = malloc(list->len * sizeof(int));
 	if (!tab)
 		ft_free_arrays(NULL, NULL, "Error, no tab_list malloc");
 	while (node)

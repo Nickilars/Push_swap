@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:53:41 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 18:21:55 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:51:22 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,18 @@ static void	normalize_list(t_dlist **list)
 
 void	check_algo(t_pshswp *data)
 {
-	if (check_order(data->lst_a) == 0)
+	if (check_order(data->a) == 0)
 	{
-		normalize_list(&data->lst_a);
-		ft_printf("\nLongueur de la liste -> %d\n\n", data->lst_a->len);
-		if (data->lst_a->len <= 1)
+		normalize_list(&data->a);
+		if (data->a->len <= 1)
 			return ;
-		else if (data->lst_a->len == 2)
-			algo_2nb(data->lst_a);
-		else if (data->lst_a->len == 3)
-			algo_3nb(&data->lst_a);
-		else if (data->lst_a->len == 4)
-			algo_4nb(data);
+		else if (data->a->len == 2)
+			algo_2nb(data->a);
+		else if (data->a->len == 3)
+			algo_3nb(&data->a);
+		else if (data->a->len == 5)
+			algo_5nb(data);
 	}
 	ft_printf("\n----------------------------------------------------------------------------------\n");
-	ft_printlist(data->lst_a, "\nListe final triée");
+	ft_printlist(data->a, "\nListe final triée");
 }

@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:49:27 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 11:18:41 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 10:34:47 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ void	ft_printlist(t_dlist *list, char *nom_list)
 	ft_printf("NULL\n");
 }
 
-void	test_ft(t_pshswp *data)
+void	test_ft(t_pshswp *list)
 {
-	swap_a(&data->lst_a);
-	ft_printlist(data->lst_a, "Liste a (swap)");
-	swap_a(&data->lst_a);
-	ft_printlist(data->lst_a, "Liste a (swap)");
-	push_b(&data->lst_a, &data->lst_b);
-	ft_printlist(data->lst_a, "Liste a (push a -> b)");
-	ft_printlist(data->lst_b, "Liste b (push a -> b)");
-	push_a(&data->lst_a, &data->lst_b);
-	ft_printlist(data->lst_a, "Liste a (push b -> a)");
-	ft_printlist(data->lst_b, "Liste b (push b -> a)");
-	rotate_a(&data->lst_a);
-	ft_printlist(data->lst_a, "Liste a (rotate)");
-	r_rotate_a(&data->lst_a);
-	ft_printlist(data->lst_a, "Liste a (revers_rotate)");
+	swap_a(&list->a);
+	ft_printlist(list->a, "Liste a (swap)");
+	swap_a(&list->a);
+	ft_printlist(list->a, "Liste a (swap)");
+	push_b(&list->a, &list->b);
+	ft_printlist(list->a, "Liste a (push a -> b)");
+	ft_printlist(list->b, "Liste b (push a -> b)");
+	push_a(&list->a, &list->b);
+	ft_printlist(list->a, "Liste a (push b -> a)");
+	ft_printlist(list->b, "Liste b (push b -> a)");
+	rotate_a(&list->a);
+	ft_printlist(list->a, "Liste a (rotate)");
+	r_rotate_a(&list->a);
+	ft_printlist(list->a, "Liste a (revers_rotate)");
 }

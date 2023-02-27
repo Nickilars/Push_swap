@@ -6,48 +6,48 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:58:37 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 15:50:22 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 10:33:42 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/p_s.h"
 
-void	swap_a(t_dlist **list)
+void	swap_a(t_dlist **a)
 {
 	t_node	*node_tmp;
 
-	if (!list ||!(*list)->head || (*list)->len < 2)
+	if (!a ||!(*a)->head || (*a)->len < 2)
 		return ;
-	if ((*list)->len > 2)
+	if ((*a)->len > 2)
 	{
-		node_tmp = ft_pop_front(list);
-		ft_dlst_addnode(list, node_tmp, 2);
+		node_tmp = ft_pop_front(a);
+		ft_dlst_addnode(a, node_tmp, 2);
 	}
 	else
 	{
-		node_tmp = ft_pop_front(list);
-		ft_dlst_addback(list, node_tmp);
+		node_tmp = ft_pop_front(a);
+		ft_dlst_addback(a, node_tmp);
 	}
 	ft_printf("sa\n");
 }
 
-void	swap_b(t_dlist **list)
+void	swap_b(t_dlist **b)
 {
 	t_node	*node_tmp;
 
-	if (!list ||!(*list)->head || (*list)->len < 2)
+	if (!b ||!(*b)->head || (*b)->len < 2)
 		return ;
-	node_tmp = ft_pop_front(list);
-	if ((*list)->len > 2)
-		ft_dlst_addnode(list, node_tmp, 2);
+	node_tmp = ft_pop_front(b);
+	if ((*b)->len > 2)
+		ft_dlst_addnode(b, node_tmp, 2);
 	else
-		ft_dlst_addback(list, node_tmp);
+		ft_dlst_addback(b, node_tmp);
 	ft_printf("sb\n");
 }
 
-void	swap_ss(t_pshswp *data)
+void	swap_ss(t_pshswp *list)
 {
-	swap_a(&data->lst_a);
-	swap_b(&data->lst_b);
+	swap_a(&list->a);
+	swap_b(&list->b);
 	ft_printf("ss\n");
 }

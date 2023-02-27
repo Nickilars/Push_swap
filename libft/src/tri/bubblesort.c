@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   bubblesort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 10:10:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/27 10:29:33 by nrossel          ###   ########.fr       */
+/*   Created: 2023/02/27 11:36:24 by nrossel           #+#    #+#             */
+/*   Updated: 2023/02/27 11:46:58 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/p_s.h"
+#include "../../include/libft.h"
 
-void	push_a(t_dlist **a, t_dlist **b)
+void	bubblesort(int	*tab, int size)
 {
-	t_node	*node_tmp;
+	int	i;
+	int	j;
 
-	if (!a || !(*b)->head)
-		return ;
-	node_tmp = ft_pop_front(b);
-	ft_dlst_addfront(a, node_tmp);
-	ft_printf("pa\n");
-}
-
-void	push_b(t_dlist **a, t_dlist **b)
-{
-	t_node	*node_tmp;
-
-	if (!b || !(*a)->head)
-		return ;
-	node_tmp = ft_pop_front(a);
-	ft_dlst_addfront(b, node_tmp);
-	ft_printf("pb\n");
+	i = 0;
+	while (i < size -1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (tab[j] > tab[j + 1])
+				ft_swap(&tab[j], &tab[j + 1]);
+			j++;
+		}
+		i++;
+	}
 }

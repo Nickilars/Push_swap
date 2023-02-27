@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:29:02 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 11:47:26 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ char		*ft_strmapi(char const*s, char (*f)(unsigned int, char));
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
+void		ft_swap(int *a, int *b);
 void		ft_bzero(void *s, size_t n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
@@ -110,5 +111,8 @@ void		ft_dlst_addfront(t_dlist **lst, t_node *new);
 void		ft_dlst_addback(t_dlist **lst, t_node *new);
 void		ft_dlst_clear(t_dlist **dlst, void (*del)(void *));
 void		ft_dlst_addnode(t_dlist **list, t_node *node, size_t position);
+
+void		bubblesort(int	*tab, int size);
+void		quicksort(int *tab, int first, int last);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:18:24 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:45:44 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:50:50 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ void	char_to_lst(char *av, t_pshswp *list)
 	ft_arg_check(split);
 	while (split[index])
 	{
-		creat_newnode(&list->lst_a, split, index);
+		creat_newnode(&list->a, split, index);
 		index++;
 	}
 	ft_free_2da(split, index, NULL);
-	ft_list_check(list->lst_a);
+	ft_list_check(list->a);
 }
 
 /*----------------- int to list -------------------*/
@@ -112,8 +112,8 @@ void	int_to_lst(char **av, t_pshswp *list)
 	ft_arg_check(av);
 	while (av[index])
 	{
-		creat_newnode(&list->lst_a, av, index);
+		creat_newnode(&list->a, av, index);
 		index++;
 	}
-	ft_list_check(list->lst_a);
+	ft_list_check(list->a);
 }

@@ -4,6 +4,8 @@ CFLAGS	= -Wall -Wextra -Werror -g -o1
 
 SRC_PATH	= ./src/
 
+SORT_PATH	=./src/tri/
+
 LIST_PATH	= ./src/list/simpl_list/
 
 DLIST_PATH	= ./src/list/doubl_list/
@@ -59,7 +61,11 @@ SRC	= ft_isalpha.c \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_striteri.c \
-			ft_free.c
+			ft_free.c \
+			ft_swap.c
+
+SORT_SRC		= bubblesort.c \
+				quicksort.c
 
 SRC_SLIST	= ft_lstnew.c \
 				ft_lstadd_front.c \
@@ -90,7 +96,7 @@ SRCS_PRINTF	= ft_printf.c \
 				ft_print_s.c \
 				ft_print_u.c
 
-SRCS	= $(addprefix $(SRC_PATH)/,$(SRC)) $(addprefix $(LIST_PATH)/,$(SRC_SLIST)) $(addprefix $(DLIST_PATH)/,$(SRC_DLIST)) $(addprefix $(GNL_SRC_PATH)/,$(SRCS_GNL)) $(addprefix $(PRINTF_SRC_PATH)/,$(SRCS_PRINTF))
+SRCS	= $(addprefix $(SRC_PATH)/,$(SRC)) $(addprefix $(LIST_PATH)/,$(SRC_SLIST)) $(addprefix $(DLIST_PATH)/,$(SRC_DLIST)) $(addprefix $(GNL_SRC_PATH)/,$(SRCS_GNL)) $(addprefix $(PRINTF_SRC_PATH)/,$(SRCS_PRINTF)) $(addprefix $(SORT_PATH)/,$(SORT_SRC))
 
 OBJS	= $(SRCS:.c=.o)
 
