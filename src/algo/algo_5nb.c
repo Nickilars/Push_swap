@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:53:13 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/27 16:49:35 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/07 10:41:32 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,19 @@ static int	ft_search_smallest(t_dlist *list)
 
 static void	ft_push_2nb_to_b(t_pshswp *list)
 {
-	int	i;
-
 	if (list->a->len > 3)
 	{
 		if (check_first_is_smallest(list->a) == 0)
 		{
-			i = ft_search_smallest(list->a);
-			if (i <= 3)
-				while (i-- > 1)
+			list->index.i = ft_search_smallest(list->a);
+			if (list->index.i <= 3)
+				while (list->index.i-- > 1)
 					rotate_a(&list->a);
-			else if (i > 3)
-				while (i++ < 6)
+			else if (list->index.i > 3 && list->a->len == 5)
+				while (list->index.i++ < 6)
+					r_rotate_a(&list->a);
+			else
+				while (list->index.i++ < 5)
 					r_rotate_a(&list->a);
 			push_b(&list->a, &list->b);
 			ft_push_2nb_to_b(list);

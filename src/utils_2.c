@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:53:41 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/27 15:51:22 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:08:50 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ static void	normalize_list(t_dlist **list)
 
 	ret = ft_issmaller(list);
 	ft_isbigger(list, ret);
-	ft_printlist(*list, "\nListe après normalisation");
 }
 
 void	check_algo(t_pshswp *data)
@@ -105,7 +104,9 @@ void	check_algo(t_pshswp *data)
 			algo_3nb(&data->a);
 		else if (data->a->len == 5)
 			algo_5nb(data);
+		else
+			algo_radix(data, data->a->len, &data->a, &data->b);
 	}
-	ft_printf("\n----------------------------------------------------------------------------------\n");
-	ft_printlist(data->a, "\nListe final triée");
+	else
+		ft_free_arraylist(data->a, data->b, 1);
 }

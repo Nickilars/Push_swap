@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_clear.c                                    :+:      :+:    :+:   */
+/*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 09:10:30 by nrossel           #+#    #+#             */
-/*   Updated: 2023/03/01 15:55:52 by nrossel          ###   ########.fr       */
+/*   Created: 2023/03/01 11:32:27 by nrossel           #+#    #+#             */
+/*   Updated: 2023/03/06 11:41:49 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../include/p_s.h"
 
-void	ft_dlst_clear(t_dlist **dlst, void (*del)(void *))
+void	ft_free_arraylist(t_dlist *a, t_dlist *b, int sortie)
 {
-	t_node	*ptr;
-
-	if (!*dlst)
-		return ;
-	ptr = (*dlst)->head;
-	while ((*dlst)->head != NULL)
-	{
-		ptr = (*dlst)->head->next;
-		ft_dlst_delone((*dlst)->head, del);
-		(*dlst)->head = ptr;
-		(*dlst)->tail = NULL;
-	}
-	*dlst = NULL;
-	free(*dlst);
+	ft_dlst_clear(&a, &ft_free);
+	free(a);
+	free(b);
+	ft_exit(sortie);
 }

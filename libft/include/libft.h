@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:04:11 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/27 11:47:26 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/01 15:58:38 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_clist
 	t_list			*head;
 }	t_clist;
 
+int			ft_exit(int i);
 int			ft_itob(int nbr);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -57,7 +58,7 @@ int			ft_atob(char *str);
 int			ft_btoi(int binaire);
 int			ft_nbrlen_d(int nbr);
 int			ft_nbrlen_exa(int nbr);
-int			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 int			ft_nbrlen_b(unsigned int nbr);
 int			ft_power(int nbr, unsigned int power);
 int			ft_free_2da(char **tab, int len, char *error_msg);
@@ -109,6 +110,7 @@ t_node		*ft_pop_front(t_dlist **lst);
 t_node		*ft_dlst_newcontent(int data);
 void		ft_dlst_addfront(t_dlist **lst, t_node *new);
 void		ft_dlst_addback(t_dlist **lst, t_node *new);
+void		ft_dlst_delone(t_node *lst, void (*del)(void *));
 void		ft_dlst_clear(t_dlist **dlst, void (*del)(void *));
 void		ft_dlst_addnode(t_dlist **list, t_node *node, size_t position);
 

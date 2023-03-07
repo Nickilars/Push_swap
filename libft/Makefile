@@ -62,7 +62,8 @@ SRC	= ft_isalpha.c \
 			ft_memmove.c \
 			ft_striteri.c \
 			ft_free.c \
-			ft_swap.c
+			ft_swap.c \
+			ft_exit.c
 
 SORT_SRC		= bubblesort.c \
 				quicksort.c
@@ -83,7 +84,8 @@ SRC_DLIST	= ft_dlst_addback.c \
 				ft_dlst_newcontent.c \
 				ft_pop_front.c \
 				ft_pop_back.c \
-				ft_dlst_add.c
+				ft_dlst_add.c \
+				ft_dlst_delone.c
 
 SRCS_GNL	= get_next_line.c \
 				get_next_line_utils.c

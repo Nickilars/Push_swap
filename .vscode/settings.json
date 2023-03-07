@@ -3,6 +3,7 @@
 		"libft.h": "c",
 		"chrono": "c",
 		"sstream": "c",
-		"p_s.h": "c"
+		"p_s.h": "c",
+		"__locale": "c"
 	}
 }

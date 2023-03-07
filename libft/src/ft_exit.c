@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_clear.c                                    :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 09:10:30 by nrossel           #+#    #+#             */
-/*   Updated: 2023/03/01 15:55:52 by nrossel          ###   ########.fr       */
+/*   Created: 2023/03/01 09:24:05 by nrossel           #+#    #+#             */
+/*   Updated: 2023/03/01 10:36:03 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../include/libft.h"
 
-void	ft_dlst_clear(t_dlist **dlst, void (*del)(void *))
+int	ft_exit(int i)
 {
-	t_node	*ptr;
-
-	if (!*dlst)
-		return ;
-	ptr = (*dlst)->head;
-	while ((*dlst)->head != NULL)
-	{
-		ptr = (*dlst)->head->next;
-		ft_dlst_delone((*dlst)->head, del);
-		(*dlst)->head = ptr;
-		(*dlst)->tail = NULL;
-	}
-	*dlst = NULL;
-	free(*dlst);
+	if (i != 1)
+		write (2, "Error\n", 6);
+	exit (0);
 }

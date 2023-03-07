@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:49:27 by nrossel           #+#    #+#             */
-/*   Updated: 2023/02/27 10:34:47 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:25:43 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_printlist(t_dlist *list, char *nom_list)
 	while (ptr)
 	{
 		//ft_printf("%p = ", ptr);
-		ft_printf("%d/%d -> ", *ptr->data, ptr->norm);
-		// ft_printf("%d", list->head->norm);
+		ft_printf("%d -> ", *ptr->data);
+		// ft_printf("\\%d", list->head->norm);
 		//sleep(5);
 		ptr = ptr->next;
 	}

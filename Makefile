@@ -1,5 +1,5 @@
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -o3 -g3
+CFLAGS		= -Wall -Wextra -Werror -o3 -g
 LIBFT		= -L./libft -lft
 INCLUDES	= -I libft/include/ -I includes/
 SRCS_PATH	= ./src
@@ -11,11 +11,13 @@ NAME		= push_swap
 SRC		=	main.c \
 			utils.c \
 			utils_2.c \
+			utils_3.c \
 			test.c
 
 ALGO	=	algo_2nb.c \
 			algo_3nb.c \
-			algo_5nb.c
+			algo_5nb.c \
+			algo_radix.c
 
 INSTRU	=	swap.c \
 			push.c \
