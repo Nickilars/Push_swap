@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:13:42 by nrossel           #+#    #+#             */
-/*   Updated: 2023/03/06 11:41:47 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/08 08:35:43 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,16 @@ int	main(int ac, char **av)
 	{
 		ft_init(&dlist);
 		if (ac == 2)
-			char_to_lst(av[1], &dlist);
+		{
+			if (av[1][0] == '\0')
+				ft_exit(0);
+			else
+			{
+				if (check_arg2(av[1]) == 0)
+					ft_free_arraylist(dlist.a, dlist.b, 0);
+				char_to_lst(av[1], &dlist);
+			}
+		}
 		else if (ac > 2)
 			int_to_lst(av + 1, &dlist);
 		check_algo(&dlist);

@@ -11,8 +11,7 @@ NAME		= push_swap
 SRC		=	main.c \
 			utils.c \
 			utils_2.c \
-			utils_3.c \
-			test.c
+			utils_3.c
 
 ALGO	=	algo_2nb.c \
 			algo_3nb.c \

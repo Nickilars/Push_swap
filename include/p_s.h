@@ -6,7 +6,7 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:53:33 by nrossel           #+#    #+#             */
-/*   Updated: 2023/03/07 11:08:43 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/08 08:24:02 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	int_to_lst(char **av, t_pshswp *list);
 void	char_to_lst(char *av, t_pshswp *list);
 void	ft_free_arraylist(t_dlist *a, t_dlist *b, int sortie);
 
+int		check_arg2(char *str);
 int		check_order(t_dlist *list);
 void	check_algo(t_pshswp *data);
 void	algo_2nb(t_dlist *list);
@@ -55,8 +56,5 @@ void	r_rotate_rr(t_pshswp *data);
 
 void	push_a(t_dlist **lst_a, t_dlist **lst_b);
 void	push_b(t_dlist **lst_a, t_dlist **lst_b);
-
-void	test_ft(t_pshswp *data);
-void	ft_printlist(t_dlist *list, char *nom_list);
 
 #endif

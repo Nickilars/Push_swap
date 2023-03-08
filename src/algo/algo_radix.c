@@ -6,13 +6,13 @@
 /*   By: nrossel <nrossel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:04:56 by nrossel           #+#    #+#             */
-/*   Updated: 2023/03/07 12:57:47 by nrossel          ###   ########.fr       */
+/*   Updated: 2023/03/07 13:41:55 by nrossel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/p_s.h"
 
-static int	bit_size(int_fast64_t size)
+static int	bit_size(int size)
 {
 	int	bit_max;
 
